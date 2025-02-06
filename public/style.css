@@ -1,0 +1,259 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+}
+
+/* Login Page Styles */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #3498db;
+}
+
+.login-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.login-box h1 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.error {
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+/* Table Selection Page Styles */
+.table-layout {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.table {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.table.free {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.table.busy {
+    background-color: #e74c3c;
+    color: white;
+    pointer-events: none;
+}
+
+.table .status {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+/* Menu Page Styles */
+.main-layout {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-column {
+    flex: 2;
+}
+
+.order-column {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.category-button {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.category-button:hover {
+    background-color: #2980b9;
+}
+
+#selected-items-list {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+/* Menu Items Page Styles */
+.menu-items-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-items-list li {
+    padding: 10px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-items-list li button {
+    background-color: #3498db;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.menu-items-list li button:hover {
+    background-color: #2980b9;
+}
+
+/* Checkout Page Styles */
+.checkout-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.checkout-container h1 {
+    text-align: center;
+}
+
+.checkout-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.checkout-container ul li {
+    padding: 10px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkout-container h2 {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.checkout-container form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.checkout-container form button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkout-container form button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .table-layout {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .main-layout {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .table-layout {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .login-box {
+        width: 90%;
+    }
+}
