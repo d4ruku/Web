@@ -23,6 +23,15 @@ $menu = [
     "Dinner Drinks" => ["Red Wine" => 2, "White Wine" => 2, "Vodka Shots" => 2]
 ];
 
+// Extract the meal type (Lunch or Dinner) from the category
+$mealType = explode(' ', $category)[0]; // "Lunch" or "Dinner"
+
+// Define the categories for the current meal type
+$categories = [
+    "Lunch" => ["Appetizers", "Entrees", "Drinks"],
+    "Dinner" => ["Appetizers", "Entrees", "Drinks"]
+];
+
 $items = $menu[$category] ?? [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -37,6 +46,17 @@ require_once __DIR__ . '/../templates/header.php';
 ?>
 
 <h1><?= htmlspecialchars($category) ?> for Table <?= htmlspecialchars($table) ?></h1>
+
+<!-- Tabbed Navigation -->
+<div class="tab-navigation">
+    <?php foreach ($categories[$mealType] as $cat): ?>
+        <a href="menu-items.php?table=<?= htmlspecialchars($table) ?>&category=<?= urlencode("$mealType $cat") ?>" 
+           class="tab-button <?= $category === "$mealType $cat" ? 'active' : '' ?>">
+            <?= htmlspecialchars($cat) ?>
+        </a>
+    <?php endforeach; ?>
+</div>
+
 <div class="main-layout">
     <div class="menu-column">
         <ul class="menu-items-list">
@@ -68,7 +88,14 @@ require_once __DIR__ . '/../templates/header.php';
             <?php endif; ?>
         </ul>
         <h3>Total: $<?= calculateTotal($_SESSION['cart'][$table] ?? []) ?></h3>
+
+        <!-- Back to Categories Button -->
         <a href="menu.php?table=<?= htmlspecialchars($table) ?>" class="button">Back to Categories</a>
+
+        <!-- Proceed to Checkout Button -->
+        <?php if (isset($_SESSION['cart'][$table]) && !empty($_SESSION['cart'][$table])): ?>
+            <a href="checkout.php?table=<?= htmlspecialchars($table) ?>" class="button">Proceed to Checkout</a>
+        <?php endif; ?>
     </div>
 </div>
 
